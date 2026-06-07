@@ -1,256 +1,669 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clínica Veterinária em Nova Iguaçu | Pelos e Babas</title>
-  <meta name="description" content="Atendimento veterinário completo em Nova Iguaçu. Consultas, exames, cirurgias, castração, internação e emergência veterinária. Agende pelo WhatsApp.">
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <style>
-        body { font-family: 'DM Sans', sans-serif; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-        .faq-answer.open { max-height: 300px; }
-        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .float-btn { animation: pulse-glow 2s infinite; }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clínica Veterinária Pelos e Babas em Nova Iguaçu. O melhor atendimento popular com amor e dedicação. Consultas, vacinas, exames e internação.">
+    <title>Clínica Veterinária Pelos E Babas | Nova Iguaçu - RJ</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Poppins para títulos (combina com a fonte arredondada da logo) e Inter para leitura -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Reset & Variáveis Baseadas na Identidade Visual (Logo) */
+        :root {
+            --brand-yellow: #EFC646; /* Amarelo extraído da logo */
+            --brand-yellow-hover: #D8B033;
+            --brand-dark: #2B1E16; /* Marrom escuro/preto dos pets na logo */
+            --text-dark: #333333;
+            --text-light: #555555;
+            --bg-light: #FDFCF9; /* Off-white quente */
+            --white: #FFFFFF;
+            --whatsapp: #25D366;
+            --whatsapp-hover: #20BD5A;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--brand-dark);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Utilidades */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: var(--brand-yellow);
+            color: var(--brand-dark);
+            box-shadow: 0 4px 15px rgba(239, 198, 70, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--brand-yellow-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239, 198, 70, 0.6);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Header e Navegação */
+        header {
+            background-color: var(--brand-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        /* Área da Logo Oficial */
+        .logo-link {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 5px 0;
+        }
+
+        .logo-img {
+            height: 70px; /* Tamanho ajustado para destacar a logo circular */
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-yellow);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            background-color: var(--brand-dark);
+            background-image: radial-gradient(circle at center, rgba(239, 198, 70, 0.1) 0%, rgba(43, 30, 22, 1) 70%);
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--brand-yellow);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(239, 198, 70, 0.3);
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .rating-badge .stars {
+            color: var(--brand-yellow);
+        }
+
+        /* Serviços */
+        .services {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--brand-dark);
+        }
+        
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--brand-yellow);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 50px 30px;
+            border-radius: 24px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--brand-yellow);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--brand-yellow);
+            color: var(--brand-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin: 0 auto 25px;
+            transition: var(--transition);
+            box-shadow: 0 8px 20px rgba(239, 198, 70, 0.4);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* Localização e Contato com Imagem da Fachada */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 0;
+            background: var(--bg-light);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .contact-info {
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .info-item i {
+            color: var(--brand-yellow);
+            font-size: 1.8rem;
+            margin-top: 3px;
+            background: var(--brand-dark);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .info-item h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .info-item p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Área Visual de Contato (Fachada + Mapa) */
+        .visual-area {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .facade-img {
+            width: 100%;
+            height: 50%;
+            object-fit: cover;
+            border-bottom: 5px solid var(--brand-yellow);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 50%;
+            min-height: 250px;
+            background-color: #E0E0E0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--brand-dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+            text-align: center;
+            border-top: 5px solid var(--brand-yellow);
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 90px; /* Logo no footer maior para presença de marca */
+            width: auto;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            margin-top: 20px;
+        }
+
+        /* Flutuante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--whatsapp);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: var(--whatsapp-hover);
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            .visual-area {
+                height: 500px;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; 
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero {
+                padding: 150px 0 80px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            .contact-info {
+                padding: 40px 20px;
+            }
+        }
+        
+        /* Animações de Scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-  <script src="/_sdk/resizing_sdk.js" type="text/javascript"></script>
- <script src="/_sdk/telemetry_sdk.js"></script></head>
- <body data-template-id="__page-root" class="w-full min-h-screen"><!-- Floating WhatsApp --> <a href="https://wa.me/5521969499716" target="_blank" rel="noopener noreferrer" class="float-btn fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
-   <svg width="28" height="28" viewbox="0 0 24 24" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-   </svg></a> <!-- Hero -->
-  <header class="relative text-center py-20 px-4 overflow-hidden">
-   <div class="absolute inset-0 opacity-20"><img data-template-id="hero-bg" class="canva-image w-full h-full object-cover" loading="lazy">
-   </div>
-   <div class="relative max-w-4xl mx-auto"><img data-template-id="logo" class="canva-image w-32 h-32 mx-auto rounded-full object-cover mb-6 border-4 border-yellow-400" loading="lazy">
-    <h1 data-template-id="hero-title" class="canva-text font-bold mb-4"></h1>
-    <p data-template-id="hero-subtitle" class="canva-text text-lg max-w-2xl mx-auto mb-8"></p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center"><a href="https://wa.me/5521969499716" target="_blank" rel="noopener noreferrer" data-template-id="hero-cta" class="canva-button inline-block px-10 py-4 rounded-full font-bold text-lg no-underline"></a> <a href="https://wa.me/5521969499716" target="_blank" rel="noopener noreferrer" data-template-id="hero-cta2" class="canva-button inline-block px-10 py-4 rounded-full font-bold text-lg no-underline border-2 border-yellow-400"></a>
-    </div>
-   </div>
-  </header>
-  <main><!-- About -->
-   <section class="py-16 px-4 fade-in">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10"><img data-template-id="about-image" class="canva-image w-full md:w-1/2 h-80 object-cover rounded-2xl" loading="lazy">
-     <div class="md:w-1/2">
-      <h2 data-template-id="about-title" class="canva-text font-bold mb-4"></h2>
-      <p data-template-id="about-text" class="canva-text leading-relaxed mb-4"></p>
-      <p data-template-id="about-text2" class="canva-text leading-relaxed mb-6"></p>
-      <div class="flex items-center gap-2"><span class="text-yellow-400 text-xl">⭐⭐⭐⭐⭐</span> <span data-template-id="about-rating" class="canva-text text-sm"></span>
-      </div>
-     </div>
-    </div>
-   </section><!-- Services -->
-   <section data-template-id="services-section" class="canva-section py-16 px-4 fade-in">
-    <div class="max-w-6xl mx-auto">
-     <h2 data-template-id="services-title" class="canva-text font-bold text-center mb-4"></h2>
-     <p data-template-id="services-subtitle" class="canva-text text-center mb-12 max-w-xl mx-auto"></p>
-     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div data-template-id="svc-1" class="canva-card rounded-xl overflow-hidden group"><img data-template-id="svc-1-img" class="canva-image w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
-       <div class="p-5">
-        <h3 data-template-id="svc-1-title" class="canva-text font-bold mb-2"></h3>
-        <p data-template-id="svc-1-desc" class="canva-text text-sm"></p>
-       </div>
-      </div>
-      <div data-template-id="svc-2" class="canva-card rounded-xl overflow-hidden group"><img data-template-id="svc-2-img" class="canva-image w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
-       <div class="p-5">
-        <h3 data-template-id="svc-2-title" class="canva-text font-bold mb-2"></h3>
-        <p data-template-id="svc-2-desc" class="canva-text text-sm"></p>
-       </div>
-      </div>
-      <div data-template-id="svc-3" class="canva-card rounded-xl overflow-hidden group"><img data-template-id="svc-3-img" class="canva-image w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
-       <div class="p-5">
-        <h3 data-template-id="svc-3-title" class="canva-text font-bold mb-2"></h3>
-        <p data-template-id="svc-3-desc" class="canva-text text-sm"></p>
-       </div>
-      </div>
-      <div data-template-id="svc-4" class="canva-card rounded-xl overflow-hidden group"><img data-template-id="svc-4-img" class="canva-image w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
-       <div class="p-5">
-        <h3 data-template-id="svc-4-title" class="canva-text font-bold mb-2"></h3>
-        <p data-template-id="svc-4-desc" class="canva-text text-sm"></p>
-       </div>
-      </div>
-      <div data-template-id="svc-5" class="canva-card rounded-xl overflow-hidden group"><img data-template-id="svc-5-img" class="canva-image w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
-       <div class="p-5">
-        <h3 data-template-id="svc-5-title" class="canva-text font-bold mb-2"></h3>
-        <p data-template-id="svc-5-desc" class="canva-text text-sm"></p>
-       </div>
-      </div>
-      <div data-template-id="svc-6" class="canva-card rounded-xl overflow-hidden group"><img data-template-id="svc-6-img" class="canva-image w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
-       <div class="p-5">
-        <h3 data-template-id="svc-6-title" class="canva-text font-bold mb-2"></h3>
-        <p data-template-id="svc-6-desc" class="canva-text text-sm"></p>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Differentials -->
-   <section class="py-16 px-4 fade-in">
-    <div class="max-w-5xl mx-auto text-center">
-     <h2 data-template-id="diff-title" class="canva-text font-bold mb-12"></h2>
-     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      <div class="flex flex-col items-center gap-2">
-       <div class="w-14 h-14 rounded-full bg-yellow-400/20 flex items-center justify-center">
-        <i data-lucide="heart" class="w-7 h-7 text-yellow-400"></i>
-       </div>
-       <p data-template-id="diff-1" class="canva-text text-sm font-medium"></p>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-       <div class="w-14 h-14 rounded-full bg-yellow-400/20 flex items-center justify-center">
-        <i data-lucide="users" class="w-7 h-7 text-yellow-400"></i>
-       </div>
-       <p data-template-id="diff-2" class="canva-text text-sm font-medium"></p>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-       <div class="w-14 h-14 rounded-full bg-yellow-400/20 flex items-center justify-center">
-        <i data-lucide="shield-check" class="w-7 h-7 text-yellow-400"></i>
-       </div>
-       <p data-template-id="diff-3" class="canva-text text-sm font-medium"></p>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-       <div class="w-14 h-14 rounded-full bg-yellow-400/20 flex items-center justify-center">
-        <i data-lucide="star" class="w-7 h-7 text-yellow-400"></i>
-       </div>
-       <p data-template-id="diff-4" class="canva-text text-sm font-medium"></p>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-       <div class="w-14 h-14 rounded-full bg-yellow-400/20 flex items-center justify-center">
-        <i data-lucide="home" class="w-7 h-7 text-yellow-400"></i>
-       </div>
-       <p data-template-id="diff-5" class="canva-text text-sm font-medium"></p>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-       <div class="w-14 h-14 rounded-full bg-yellow-400/20 flex items-center justify-center">
-        <i data-lucide="map-pin" class="w-7 h-7 text-yellow-400"></i>
-       </div>
-       <p data-template-id="diff-6" class="canva-text text-sm font-medium"></p>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-       <div class="w-14 h-14 rounded-full bg-yellow-400/20 flex items-center justify-center">
-        <i data-lucide="zap" class="w-7 h-7 text-yellow-400"></i>
-       </div>
-       <p data-template-id="diff-7" class="canva-text text-sm font-medium"></p>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-       <div class="w-14 h-14 rounded-full bg-yellow-400/20 flex items-center justify-center">
-        <i data-lucide="paw-print" class="w-7 h-7 text-yellow-400"></i>
-       </div>
-       <p data-template-id="diff-8" class="canva-text text-sm font-medium"></p>
-      </div>
-     </div>
-    </div>
-   </section><!-- Emergency -->
-   <section data-template-id="emergency-section" class="canva-section py-16 px-4 fade-in">
-    <div class="max-w-3xl mx-auto text-center">
-     <div class="text-5xl mb-4">
-      🚨
-     </div>
-     <h2 data-template-id="emergency-title" class="canva-text font-bold mb-4"></h2>
-     <p data-template-id="emergency-text" class="canva-text mb-8 text-lg"></p><a href="https://wa.me/5521969499716" target="_blank" rel="noopener noreferrer" data-template-id="emergency-cta" class="canva-button inline-block px-10 py-4 rounded-full font-bold text-lg no-underline"></a>
-     <p data-template-id="emergency-phone" class="canva-text mt-4 text-xl font-bold"></p>
-    </div>
-   </section><!-- Testimonials -->
-   <section class="py-16 px-4 fade-in">
-    <div class="max-w-4xl mx-auto text-center">
-     <h2 data-template-id="testimonials-title" class="canva-text font-bold mb-4"></h2>
-     <p data-template-id="testimonials-subtitle" class="canva-text mb-10"></p>
-     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div data-template-id="review-1" class="canva-card rounded-xl p-6">
-       <div class="text-yellow-400 mb-3">
-        ⭐⭐⭐⭐⭐
-       </div>
-       <p data-template-id="review-1-text" class="canva-text text-sm italic mb-3"></p>
-       <p data-template-id="review-1-name" class="canva-text font-bold text-sm"></p>
-      </div>
-      <div data-template-id="review-2" class="canva-card rounded-xl p-6">
-       <div class="text-yellow-400 mb-3">
-        ⭐⭐⭐⭐⭐
-       </div>
-       <p data-template-id="review-2-text" class="canva-text text-sm italic mb-3"></p>
-       <p data-template-id="review-2-name" class="canva-text font-bold text-sm"></p>
-      </div>
-      <div data-template-id="review-3" class="canva-card rounded-xl p-6">
-       <div class="text-yellow-400 mb-3">
-        ⭐⭐⭐⭐⭐
-       </div>
-       <p data-template-id="review-3-text" class="canva-text text-sm italic mb-3"></p>
-       <p data-template-id="review-3-name" class="canva-text font-bold text-sm"></p>
-      </div>
-     </div>
-    </div>
-   </section><!-- FAQ -->
-   <section data-template-id="faq-section" class="canva-section py-16 px-4 fade-in">
-    <div class="max-w-3xl mx-auto">
-     <h2 data-template-id="faq-title" class="canva-text font-bold text-center mb-10"></h2>
-     <div class="space-y-4">
-      <div class="faq-item border border-gray-700 rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left p-4 flex justify-between items-center" type="button"> <span data-template-id="faq-1-q" class="canva-text font-medium"></span> <i data-lucide="chevron-down" class="w-5 h-5 text-yellow-400 transition-transform duration-300"></i> </button>
-       <div class="faq-answer px-4 pb-4">
-        <p data-template-id="faq-1-a" class="canva-text text-sm"></p>
-       </div>
-      </div>
-      <div class="faq-item border border-gray-700 rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left p-4 flex justify-between items-center" type="button"> <span data-template-id="faq-2-q" class="canva-text font-medium"></span> <i data-lucide="chevron-down" class="w-5 h-5 text-yellow-400 transition-transform duration-300"></i> </button>
-       <div class="faq-answer px-4 pb-4">
-        <p data-template-id="faq-2-a" class="canva-text text-sm"></p>
-       </div>
-      </div>
-      <div class="faq-item border border-gray-700 rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left p-4 flex justify-between items-center" type="button"> <span data-template-id="faq-3-q" class="canva-text font-medium"></span> <i data-lucide="chevron-down" class="w-5 h-5 text-yellow-400 transition-transform duration-300"></i> </button>
-       <div class="faq-answer px-4 pb-4">
-        <p data-template-id="faq-3-a" class="canva-text text-sm"></p>
-       </div>
-      </div>
-      <div class="faq-item border border-gray-700 rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left p-4 flex justify-between items-center" type="button"> <span data-template-id="faq-4-q" class="canva-text font-medium"></span> <i data-lucide="chevron-down" class="w-5 h-5 text-yellow-400 transition-transform duration-300"></i> </button>
-       <div class="faq-answer px-4 pb-4">
-        <p data-template-id="faq-4-a" class="canva-text text-sm"></p>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Final CTA -->
-   <section class="py-20 px-4 text-center fade-in">
-    <div class="max-w-3xl mx-auto">
-     <h2 data-template-id="final-title" class="canva-text font-bold mb-4"></h2>
-     <p data-template-id="final-text" class="canva-text text-lg mb-8"></p><a href="https://wa.me/5521969499716" target="_blank" rel="noopener noreferrer" data-template-id="final-cta" class="canva-button inline-block px-10 py-4 rounded-full font-bold text-lg no-underline"></a>
-    </div>
-   </section><!-- Footer -->
-   <footer data-template-id="footer-section" class="canva-footer py-14 px-4">
-    <div class="max-w-4xl mx-auto text-center">
-     <h2 data-template-id="contact-title" class="canva-text font-bold mb-6"></h2>
-     <p data-template-id="contact-address" class="canva-text mb-2"></p>
-     <p data-template-id="contact-hours" class="canva-text mb-2"></p>
-     <p data-template-id="contact-phone" class="canva-text mb-6"></p>
-     <div class="flex justify-center gap-4 mb-6"><a href="https://www.instagram.com/veterinaria_pelosebabas" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-yellow-400/20 flex items-center justify-center hover:bg-yellow-400/40 transition-colors"> <i data-lucide="instagram" class="w-5 h-5 text-yellow-400"></i> </a> <a href="https://wa.me/5521969499716" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center hover:bg-green-500/40 transition-colors"> <i data-lucide="phone" class="w-5 h-5 text-green-400"></i> </a>
-     </div>
-     <p data-template-id="footer-copy" class="canva-text text-sm"></p>
-    </div>
-   </footer>
-  </main>
-  <script src="/_sdk/editing_sdk.js"></script>
-  <script>
-        lucide.createIcons();
+</head>
+<body>
 
-        // FAQ
-        document.querySelectorAll('.faq-toggle').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const answer = btn.nextElementSibling;
-                const icon = btn.querySelector('[data-lucide]');
-                answer.classList.toggle('open');
-                icon.style.transform = answer.classList.contains('open') ? 'rotate(180deg)' : '';
+    <!-- Header com Logo Oficial -->
+    <header>
+        <div class="container navbar">
+            <!-- Arquivo da Logo referenciado exatamente como solicitado -->
+            <a href="#" class="logo-link">
+                <img src="image_3c17ab.png" alt="Logo Clínica Veterinária Pelos E Babas" class="logo-img">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Especialidades</a></li>
+                <li><a href="#contato">Localização</a></li>
+            </ul>
+            
+            <a href="https://wa.me/5521969499716" target="_blank" class="btn btn-primary" aria-label="Falar no WhatsApp">
+                <i class="fa-solid fa-calendar-check"></i> Agendar
+            </a>
+            
+            <button class="mobile-menu-btn" aria-label="Menu" onclick="alert('Menu Mobile ativado.')">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container fade-in">
+            <div class="rating-badge">
+                <span class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </span>
+                <span>4.7 (95 avaliações no Google)</span>
+            </div>
+            <h1>O melhor atendimento popular para seu pet, com <span>Amor e Dedicação</span></h1>
+            <p>Sua clínica de confiança em Nova Iguaçu. Oferecemos estrutura completa de consultas, vacinas, exames e internação com valores acessíveis.</p>
+            
+            <div class="hero-buttons">
+                <a href="https://wa.me/5521969499716" target="_blank" class="btn btn-primary">
+                    Agendar Consulta <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#servicos" class="btn btn-whatsapp" style="background-color: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.3); box-shadow: none;">
+                    Ver Especialidades
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="services">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Nossos Serviços</h2>
+                <p>Estrutura completa para a saúde do seu cão e gato</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <h3>Consultas</h3>
+                    <p>Atendimento clínico geral focado no diagnóstico preciso e tratamento humanizado.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-syringe"></i>
+                    </div>
+                    <h3>Vacinas</h3>
+                    <p>Imunização completa para proteger seu pet contra as principais doenças virais.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
+                    <h3>Exames</h3>
+                    <p>Agilidade em exames laboratoriais essenciais para a saúde preventiva do seu animal.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-bed-pulse"></i>
+                    </div>
+                    <h3>Internação</h3>
+                    <p>Monitoramento contínuo em ambiente preparado para a rápida recuperação do paciente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato / Localização com Foto da Fachada -->
+    <section id="contato" class="contact">
+        <div class="container fade-in">
+            <div class="section-title">
+                <h2>Onde Estamos</h2>
+                <p>Venha conhecer nossa estrutura em Comendador Soares</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Atendimento Veterinário Popular</h3>
+                    
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Endereço</h4>
+                            <p>R. Celso Brandão, 126<br>Rosa dos Ventos, Nova Iguaçu - RJ<br>CEP: 26276-315</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <h4>Contato</h4>
+                            <p>(21) 96949-9716</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fa-regular fa-clock"></i>
+                        <div>
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Segunda a Sábado<br>A partir das 09:00</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/5521969499716" target="_blank" class="btn btn-primary" style="margin-top: 10px;">
+                        <i class="fa-brands fa-whatsapp"></i> Iniciar Atendimento
+                    </a>
+                </div>
+                
+                <div class="visual-area">
+                    <!-- Imagem da Fachada solicitada -->
+                    <img src="image_3c1788.png" alt="Fachada da Clínica Veterinária Pelos E Babas" class="facade-img">
+                    
+                    <!-- Mapa Google embutido -->
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.291340156294!2d-43.48624138448375!3d-22.754378985089225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9966b96e54f9a1%3A0xc3b5b6cf5a133ef!2sR.%20Celso%20Brand%C3%A3o%2C%20126%20-%20Comendador%20Soares%2C%20Nova%20Igua%C3%A7u%20-%20RJ%2C%2026276-315!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5521969499716" class="whatsapp-float" target="_blank" aria-label="Falar conosco no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="image_3c17ab.png" alt="Logo Clínica Veterinária Pelos E Babas">
+            </div>
+            <p class="footer-text">
+                <strong>Clínica Veterinária Pelos E Babas</strong><br>
+                Cuidando com amor e dedicação.<br><br>
+                © 2026 Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript para animações de rolagem -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(element => {
+                observer.observe(element);
             });
         });
-
-        // Scroll fade-in
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a027c3c28d14e838',t:'MTc3OTkxMzY5Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
