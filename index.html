@@ -6,27 +6,35 @@
     <meta name="description" content="Clínica Veterinária Pelos e Babas em Nova Iguaçu. O melhor atendimento popular com amor e dedicação. Consultas, vacinas, exames e internação.">
     <title>Clínica Veterinária Pelos E Babas | Nova Iguaçu - RJ</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Poppins para títulos (combina com a fonte arredondada da logo) e Inter para leitura -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* CSS Reset & Variáveis Baseadas na Identidade Visual (Logo) */
+        /* CSS Reset & Variaveis */
         :root {
-            --brand-yellow: #EFC646; /* Amarelo extraído da logo */
-            --brand-yellow-hover: #D8B033;
-            --brand-dark: #2B1E16; /* Marrom escuro/preto dos pets na logo */
-            --text-dark: #333333;
-            --text-light: #555555;
-            --bg-light: #FDFCF9; /* Off-white quente */
-            --white: #FFFFFF;
-            --whatsapp: #25D366;
+            /* ========================================================
+               1. PALETA DE CORES (Altere os valores HEX de forma fácil)
+               ======================================================== */
+            --primary: #F4D03F;          /* Cor principal (botões, destaques) */
+            --primary-hover: #E5C33A;    /* Cor principal ao passar o mouse */
+            --text-dark: #3E2723;        /* Cor do texto escuro (títulos) */
+            --text-light: #666666;       /* Cor do texto claro (parágrafos) */
+            --bg-light: #FAFAFA;         /* Cor de fundo do site */
+            --white: #FFFFFF;            /* Cor dos quadros e cards brancos */
+            --whatsapp: #25D366;         /* Cor do botão WhatsApp */
             --whatsapp-hover: #20BD5A;
+
+            /* ========================================================
+               2. IMAGEM DE FUNDO - SESSÃO 1 (HERO)
+               ======================================================== */
+            /* Coloque o link ou caminho da sua imagem dentro do url('') abaixo */
+            --hero-bg-image: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1920&auto=format&fit=crop'); 
+            /* Defina a opacidade da imagem de fundo (0.0 a 1.0) */
+            --hero-bg-opacity: 0.15; 
+
             --transition: all 0.3s ease;
         }
 
@@ -47,9 +55,9 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4 {
+        h1, h2, h3 {
             font-family: 'Poppins', sans-serif;
-            color: var(--brand-dark);
+            color: var(--text-dark);
         }
 
         a {
@@ -69,28 +77,13 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 14px 32px;
+            padding: 14px 28px;
             border-radius: 50px;
-            font-weight: 700;
+            font-weight: 600;
             font-family: 'Poppins', sans-serif;
-            font-size: 1.05rem;
             transition: var(--transition);
             cursor: pointer;
             border: none;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-primary {
-            background-color: var(--brand-yellow);
-            color: var(--brand-dark);
-            box-shadow: 0 4px 15px rgba(239, 198, 70, 0.4);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--brand-yellow-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(239, 198, 70, 0.6);
         }
 
         .btn-whatsapp {
@@ -107,8 +100,8 @@
 
         /* Header e Navegação */
         header {
-            background-color: var(--brand-dark);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: fixed;
             width: 100%;
             top: 0;
@@ -119,26 +112,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 90px;
+            height: 80px;
         }
 
-        /* Área da Logo Oficial */
-        .logo-link {
+        .logo {
             display: flex;
             align-items: center;
-            height: 100%;
-            padding: 5px 0;
         }
 
-        .logo-img {
-            height: 70px; /* Tamanho ajustado para destacar a logo circular */
+        /* Ajuste do tamanho da logo do topo */
+        .logo img {
+            max-height: 50px;
             width: auto;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-img:hover {
-            transform: scale(1.05);
         }
 
         .nav-links {
@@ -148,180 +133,154 @@
         }
 
         .nav-links a {
-            color: var(--white);
+            color: var(--text-dark);
             font-weight: 500;
-            font-family: 'Poppins', sans-serif;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
             transition: var(--transition);
         }
 
         .nav-links a:hover {
-            color: var(--brand-yellow);
+            color: var(--primary);
         }
 
         .mobile-menu-btn {
             display: none;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             background: none;
             border: none;
-            color: var(--white);
+            color: var(--text-dark);
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* Hero Section (Sessão 1 com Imagem de Fundo configurável) */
         .hero {
-            padding: 180px 0 120px;
-            background-color: var(--brand-dark);
-            background-image: radial-gradient(circle at center, rgba(239, 198, 70, 0.1) 0%, rgba(43, 30, 22, 1) 70%);
-            text-align: center;
-            color: var(--white);
             position: relative;
+            padding: 160px 0 100px;
+            background-color: var(--bg-light);
+            text-align: center;
             overflow: hidden;
         }
 
+        /* Camada da Imagem de Fundo com Opacidade */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: var(--hero-bg-image);
+            background-size: cover;
+            background-position: center;
+            opacity: var(--hero-bg-opacity);
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1; /* Mantém o texto acima da imagem */
+        }
+
         .hero h1 {
-            font-size: 3.5rem;
-            color: var(--white);
+            font-size: 3rem;
             margin-bottom: 20px;
             line-height: 1.2;
         }
 
         .hero h1 span {
-            color: var(--brand-yellow);
+            color: var(--primary);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.85);
-            max-width: 700px;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
             margin: 0 auto 40px;
-            font-weight: 400;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .rating-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(239, 198, 70, 0.3);
-            padding: 10px 20px;
-            border-radius: 50px;
-            margin-bottom: 30px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 0.95rem;
-            backdrop-filter: blur(5px);
-        }
-
-        .rating-badge .stars {
-            color: var(--brand-yellow);
         }
 
         /* Serviços */
         .services {
-            padding: 100px 0;
-            background-color: var(--bg-light);
+            padding: 80px 0;
+            background-color: var(--white);
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--brand-dark);
-        }
-        
-        .section-title h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--brand-yellow);
-            margin: 15px auto 0;
-            border-radius: 2px;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
 
         .service-card {
-            background: var(--white);
-            padding: 50px 30px;
-            border-radius: 24px;
+            background: var(--bg-light);
+            padding: 40px 30px;
+            border-radius: 20px;
             text-align: center;
             transition: var(--transition);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border: 2px solid transparent;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: var(--brand-yellow);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: var(--primary);
         }
 
+        /* Ajuste para usar imagens nos cards de serviço */
         .service-icon {
-            width: 80px;
-            height: 80px;
-            background-color: var(--brand-yellow);
-            color: var(--brand-dark);
+            width: 70px;
+            height: 70px;
+            background-color: rgba(244,208,63,0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.2rem;
-            margin: 0 auto 25px;
+            margin: 0 auto 20px;
             transition: var(--transition);
-            box-shadow: 0 8px 20px rgba(239, 198, 70, 0.4);
+            overflow: hidden;
+        }
+        
+        .service-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .service-card:hover .service-icon {
+            background-color: var(--primary);
         }
 
         .service-card h3 {
             margin-bottom: 15px;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
         }
 
-        /* Localização e Contato com Imagem da Fachada */
+        /* Localização e Contato */
         .contact {
-            padding: 100px 0;
-            background-color: var(--white);
+            padding: 80px 0;
+            background-color: var(--bg-light);
         }
 
         .contact-content {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 0;
-            background: var(--bg-light);
-            border-radius: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: var(--white);
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .contact-info {
-            padding: 60px 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 30px;
+            padding: 50px;
         }
 
         .info-item {
@@ -332,76 +291,43 @@
         }
 
         .info-item i {
-            color: var(--brand-yellow);
-            font-size: 1.8rem;
+            color: var(--primary);
+            font-size: 1.5rem;
             margin-top: 3px;
-            background: var(--brand-dark);
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
         }
 
         .info-item h4 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
             margin-bottom: 5px;
-            font-size: 1.1rem;
         }
 
         .info-item p {
             color: var(--text-light);
-            font-size: 1rem;
-        }
-
-        /* Área Visual de Contato (Fachada + Mapa) */
-        .visual-area {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .facade-img {
-            width: 100%;
-            height: 50%;
-            object-fit: cover;
-            border-bottom: 5px solid var(--brand-yellow);
+            font-size: 0.95rem;
         }
 
         .map-container {
             width: 100%;
-            height: 50%;
-            min-height: 250px;
+            height: 100%;
+            min-height: 400px;
             background-color: #E0E0E0;
         }
 
         /* Footer */
         footer {
-            background-color: var(--brand-dark);
+            background-color: var(--text-dark);
             color: var(--white);
-            padding: 60px 0 30px;
+            padding: 30px 0;
             text-align: center;
-            border-top: 5px solid var(--brand-yellow);
-        }
-
-        .footer-logo {
-            margin-bottom: 20px;
-        }
-
-        .footer-logo img {
-            height: 90px; /* Logo no footer maior para presença de marca */
-            width: auto;
         }
 
         .footer-text {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.95rem;
-            margin-top: 20px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
         }
 
-        /* Flutuante WhatsApp */
+        /* Botão WhatsApp Flutuante */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -410,20 +336,21 @@
             height: 60px;
             background-color: var(--whatsapp);
             color: #FFF;
-            border-radius: 50px;
+            border-radius: 50%;
             text-align: center;
-            font-size: 30px;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            z-index: 100;
+            font-size: 35px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
             transition: var(--transition);
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
             background-color: var(--whatsapp-hover);
+            transform: scale(1.1);
         }
 
         /* Responsividade */
@@ -431,45 +358,34 @@
             .contact-content {
                 grid-template-columns: 1fr;
             }
-            .visual-area {
-                height: 500px;
-            }
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
         }
 
         @media (max-width: 768px) {
             .nav-links {
-                display: none; 
+                display: none;
             }
             .mobile-menu-btn {
                 display: block;
             }
             .hero {
-                padding: 150px 0 80px;
+                padding: 130px 0 80px;
             }
             .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .btn {
-                width: 100%;
-                max-width: 300px;
+                font-size: 2rem;
             }
             .contact-info {
-                padding: 40px 20px;
+                padding: 30px;
             }
         }
         
         /* Animações de Scroll */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         .fade-in.visible {
             opacity: 1;
@@ -479,170 +395,131 @@
 </head>
 <body>
 
-    <!-- Header com Logo Oficial -->
     <header>
         <div class="container navbar">
-            <!-- Arquivo da Logo referenciado exatamente como solicitado -->
-            <a href="https://scontent-gig4-1.xx.fbcdn.net/v/t39.30808-1/305217559_506818731448883_3752676258854497278_n.jpg?stp=c25.0.1230.1230a_dst-jpg_tt6&cstp=mx1230x1230&ctp=s200x200&_nc_cat=108&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=aS92JYRu6WMQ7kNvwF_RaLA&_nc_oc=AdrOdn1S3Lu0FqtoUIJVt9E0WE11R0rAIiuutNZ_-TZwaJX6JRIB7Y4GgxoEvZH5JVWs4ZgQjFMtC3FATMpyQJFp&_nc_zt=24&_nc_ht=scontent-gig4-1.xx&_nc_gid=yIq1dnLOB4ALrC-OB05_rw&_nc_ss=7b2a8&oh=00_Af8uQ46jSaCKTv4onfuSGtQFiwDEwFU6_m7c3UH4ueF1Lw&oe=6A2B9D18" class="logo-link">
-                <img src="image_3c17ab.png" alt="Logo Clínica Veterinária Pelos E Babas" class="logo-img">
+            <a href="#" class="logo">
+                <img src="https://raw.githubusercontent.com/sitebio/pelosebabas/refs/heads/main/logo%20pelos%20e%20babas%20png.png" alt="Logo Pelos e Babas">
             </a>
-            
+
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#servicos">Especialidades</a></li>
                 <li><a href="#contato">Localização</a></li>
             </ul>
-            
-            <a href="https://wa.me/5521969499716" target="_blank" class="btn btn-primary" aria-label="Falar no WhatsApp">
-                <i class="fa-solid fa-calendar-check"></i> Agendar
+            <a href="https://wa.me/5521969499716" target="_blank" class="btn btn-whatsapp" aria-label="Falar no WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i> Agendar
             </a>
-            
-            <button class="mobile-menu-btn" aria-label="Menu" onclick="alert('Menu Mobile ativado.')">
+            <button class="mobile-menu-btn" aria-label="Menu" onclick="alert('Funcionalidade de menu lateral seria ativada aqui.')">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="container fade-in">
-            <div class="rating-badge">
-                <span class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star-half-stroke"></i>
-                </span>
-                <span>4.7 (95 avaliações no Google)</span>
-            </div>
-            <h1>O melhor atendimento popular para seu pet, com <span>Amor e Dedicação</span></h1>
-            <p>Sua clínica de confiança em Nova Iguaçu. Oferecemos estrutura completa de consultas, vacinas, exames e internação com valores acessíveis.</p>
-            
-            <div class="hero-buttons">
-                <a href="https://wa.me/5521969499716" target="_blank" class="btn btn-primary">
-                    Agendar Consulta <i class="fa-solid fa-arrow-right"></i>
-                </a>
-                <a href="#servicos" class="btn btn-whatsapp" style="background-color: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.3); box-shadow: none;">
-                    Ver Especialidades
-                </a>
-            </div>
+            <h1>Cuidando do seu melhor amigo com <span>Amor e Dedicação</span></h1>
+            <p>O melhor atendimento veterinário popular da região de Nova Iguaçu. Estrutura completa para garantir a saúde e alegria do seu pet.</p>
+            <a href="https://wa.me/5521969499716" target="_blank" class="btn btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Agendar uma Consulta
+            </a>
         </div>
     </section>
 
-    <!-- Serviços -->
     <section id="servicos" class="services">
         <div class="container">
             <div class="section-title fade-in">
                 <h2>Nossos Serviços</h2>
-                <p>Estrutura completa para a saúde do seu cão e gato</p>
+                <p>Cuidado completo em um só lugar</p>
             </div>
             <div class="services-grid">
+                
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fa-solid fa-user-doctor"></i>
+                        <img src="https://raw.githubusercontent.com/sitebio/pelosebabas/refs/heads/main/logo%20pelos%20e%20babas%20png.png" alt="Ícone Consulta">
                     </div>
-                    <h3>Consultas</h3>
-                    <p>Atendimento clínico geral focado no diagnóstico preciso e tratamento humanizado.</p>
+                    <h3>Consultas Clínicas</h3>
+                    <p>Avaliação detalhada para diagnóstico preciso e tratamento humanizado do seu pet.</p>
                 </div>
+
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fa-solid fa-syringe"></i>
+                        <img src="https://raw.githubusercontent.com/sitebio/pelosebabas/refs/heads/main/logo%20pelos%20e%20babas%20png.png" alt="Ícone Vacina">
                     </div>
                     <h3>Vacinas</h3>
-                    <p>Imunização completa para proteger seu pet contra as principais doenças virais.</p>
+                    <p>Prevenção é o melhor remédio. Mantenha a carteirinha de vacinação sempre em dia.</p>
                 </div>
+
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fa-solid fa-microscope"></i>
+                        <img src="https://raw.githubusercontent.com/sitebio/pelosebabas/refs/heads/main/logo%20pelos%20e%20babas%20png.png" alt="Ícone Exames">
                     </div>
                     <h3>Exames</h3>
-                    <p>Agilidade em exames laboratoriais essenciais para a saúde preventiva do seu animal.</p>
+                    <p>Agilidade e precisão em exames laboratoriais e de imagem para um diagnóstico rápido.</p>
                 </div>
+
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fa-solid fa-bed-pulse"></i>
+                        <img src="https://raw.githubusercontent.com/sitebio/pelosebabas/refs/heads/main/logo%20pelos%20e%20babas%20png.png" alt="Ícone Internação">
                     </div>
                     <h3>Internação</h3>
-                    <p>Monitoramento contínuo em ambiente preparado para a rápida recuperação do paciente.</p>
+                    <p>Suporte e monitoramento contínuo em um ambiente seguro e preparado para recuperação.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Contato / Localização com Foto da Fachada -->
     <section id="contato" class="contact">
         <div class="container fade-in">
             <div class="section-title">
                 <h2>Onde Estamos</h2>
-                <p>Venha conhecer nossa estrutura em Comendador Soares</p>
+                <p>Venha nos visitar em Nova Iguaçu</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Atendimento Veterinário Popular</h3>
-                    
                     <div class="info-item">
                         <i class="fa-solid fa-location-dot"></i>
                         <div>
                             <h4>Endereço</h4>
-                            <p>R. Celso Brandão, 126<br>Rosa dos Ventos, Nova Iguaçu - RJ<br>CEP: 26276-315</p>
+                            <p>R. Celso Brandão, 126<br>Rosa dos Ventos / Comendador Soares<br>Nova Iguaçu - RJ, 26276-315</p>
                         </div>
                     </div>
-                    
                     <div class="info-item">
                         <i class="fa-brands fa-whatsapp"></i>
                         <div>
-                            <h4>Contato</h4>
+                            <h4>WhatsApp / Telefone</h4>
                             <p>(21) 96949-9716</p>
                         </div>
                     </div>
-                    
                     <div class="info-item">
                         <i class="fa-regular fa-clock"></i>
                         <div>
                             <h4>Horário de Funcionamento</h4>
-                            <p>Segunda a Sábado<br>A partir das 09:00</p>
+                            <p>Aberto de Segunda a Sábado<br>A partir das 09:00</p>
                         </div>
                     </div>
-                    
-                    <a href="https://wa.me/5521969499716" target="_blank" class="btn btn-primary" style="margin-top: 10px;">
-                        <i class="fa-brands fa-whatsapp"></i> Iniciar Atendimento
+                    <a href="https://wa.me/5521969499716" target="_blank" class="btn btn-whatsapp" style="margin-top: 20px;">
+                        <i class="fa-brands fa-whatsapp"></i> Enviar Mensagem
                     </a>
                 </div>
-                
-                <div class="visual-area">
-                    <!-- Imagem da Fachada solicitada -->
-                    <img src="image_3c1788.png" alt="Fachada da Clínica Veterinária Pelos E Babas" class="facade-img">
-                    
-                    <!-- Mapa Google embutido -->
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.291340156294!2d-43.48624138448375!3d-22.754378985089225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9966b96e54f9a1%3A0xc3b5b6cf5a133ef!2sR.%20Celso%20Brand%C3%A3o%2C%20126%20-%20Comendador%20Soares%2C%20Nova%20Igua%C3%A7u%20-%20RJ%2C%2026276-315!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.337190035071!2d-43.4682025!3d-22.7533671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9967b0b6911b33%3A0xc3f6048d28e46955!2sR.%20Celso%20Brand%C3%A3o%2C%20126%20-%20Comendador%20Soares%2C%20Nova%20Igua%C3%A7u%20-%20RJ%2C%2026276-315!5e0!3m2!1spt-BR!2sbr!4v1715000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://wa.me/5521969499716" class="whatsapp-float" target="_blank" aria-label="Falar conosco no WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-logo">
-                <img src="image_3c17ab.png" alt="Logo Clínica Veterinária Pelos E Babas">
-            </div>
-            <p class="footer-text">
-                <strong>Clínica Veterinária Pelos E Babas</strong><br>
-                Cuidando com amor e dedicação.<br><br>
-                © 2026 Todos os direitos reservados.
-            </p>
+            <p class="footer-text">© 2026 Clínica Veterinária Pelos E Babas. Todos os direitos reservados.<br>Cuidando com amor e dedicação.</p>
         </div>
     </footer>
 
-    <!-- JavaScript para animações de rolagem -->
+    <a href="https://wa.me/5521969499716" target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const observerOptions = {
